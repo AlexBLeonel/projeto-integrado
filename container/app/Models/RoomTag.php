@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class RoomTag extends Model {
     use HasFactory;
     use SoftDeletes;
+    
+    protected $fillable = ["room_id", "tag_id"];
+
+
 }

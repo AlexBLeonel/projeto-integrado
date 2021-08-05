@@ -10,7 +10,13 @@ class Booking extends Model {
     use HasFactory;
     use SoftDeletes;
 
-    public function index() {
-        
+    protected $fillable = ["client_id", "room_id", "checkin", "checkout"];
+
+    public function clients() {
+        return $this->belongsToMany(Client::class);
+    }
+
+    public function rooms() {
+        return $this->belongsToMany(Room::class);
     }
 }

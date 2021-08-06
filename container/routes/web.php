@@ -20,10 +20,9 @@ Route::get('/', function () {
 
 
 Route::prefix('rooms')->middleware('auth')->group(function(){
-    Route::get('list', [App\Http\Controllers\RoomController::class, 'index'])->name('rooms');
+    Route::get('list', [App\Http\Controllers\RoomController::class, 'index'])->name('rooms.list');
     Route::get('create', [App\Http\Controllers\RoomController::class, 'create'])->name('rooms.create');
 });
-
 
 Auth::routes();
 

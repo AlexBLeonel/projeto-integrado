@@ -6,6 +6,7 @@
 <div class="container">
 
     <h1>Criar Quarto</h1>
+
     <form action="" method="post">
         <div class="form-group">
             <br>
@@ -23,8 +24,13 @@
         <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> salvar</button>
 
 
-
     </form>
+
+
+
+
+
+
 
 </div>
 @endsection

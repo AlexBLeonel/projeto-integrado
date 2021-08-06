@@ -58,8 +58,8 @@
                               <i class="fas fa-bed"></i> Quartos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Listar</a>
-                              <a class="dropdown-item" href="#">Criar</a>
+                              <a class="dropdown-item" href="{{ route('rooms.list') }}">Listar</a>
+                              <a class="dropdown-item" href="{{ route('rooms.create') }}">Criar</a>
 
                             </div>
                           </li>

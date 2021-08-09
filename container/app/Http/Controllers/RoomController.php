@@ -1,117 +1,70 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\Room;
 
-<<<<<<< HEAD
-class RoomController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+class RoomController extends Controller {
+    public function index() {
         return view('rooms.list');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create() {
         return view('rooms.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-=======
-class RoomController extends Controller {
-    public function __construct() {
-        $this->middleware('auth');
-    }
-    
-    public function index() {
-        //
-    }
-
-    public function create() {
-        //
-    }
-
     public function store(Request $request) {
-        //
+        try {
+            Room::create($request->all());
+            \Session::flash('flash_message', [
+                'msg'   => 'Quarto criado com sucesso!',
+                'class' => 'alert-success'
+            ]);
+        } catch(PDOException $e) {
+            \Session::flash('flash_message', [
+                'msg'   => 'Ops, algo inesperado aconteceu...',
+                'class' => 'alert-danger'
+            ]);
+        }
+        // return redirect()->route();
     }
 
     public function show($id) {
-        //
+        $room = Room::findOrFail($id);
+        if($room) {
+            // return View('', compact('room'));
+        } else {
+            // return View();
+        }
     }
 
     public function edit($id) {
-        //
+        $room = Room::findOrFail($id);
+        if($room) {
+            // return View('', compact('room'));
+        } else {
+            // return View();
+        }
     }
 
     public function update(Request $request, $id) {
-        //
+        try {
+            $room = Room::findOrFail($id);
+            $room->update($request->all());
+            \Session::flash('flash_message', [
+                'msg'   => 'Quarto atualizado com sucesso!',
+                'class' => 'alert-success'
+            ]);
+        } catch(PDOException $e) {
+            \Session::flash('flash_message', [
+                'msg'   => 'Ops, algo inesperado aconteceu...',
+                'class' => 'alert-danger'
+            ]);
+        }
+        // return redirect()->route();
     }
 
     public function destroy($id) {
->>>>>>> db_migrations
-        //
+
     }
 }

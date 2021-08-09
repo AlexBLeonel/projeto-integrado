@@ -9,4 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Payments extends Model {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = ["payments","status"];
+
+    public function clients() {
+        return $this->belongsToMany(Clients::class);
+    }
 }

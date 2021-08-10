@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('rooms')->middleware('auth')->group(function() {
-    Route::get('list', [RoomController::class, 'index'])->name('rooms');
+    Route::get('list', [RoomController::class, 'index'])->name('rooms.list');
     Route::get('create', [RoomController::class, 'create'])->name('rooms.create');
     Route::post('store', [RoomController::class, 'store'])->name('rooms.store');
     Route::get('edit', [RoomController::class, 'create'])->name('rooms.edit');

@@ -7,7 +7,7 @@
 
     <h1>Quarto :: Adicionar</h1>
 
-    <form action="" method="post">
+    <form action="{{ route('rooms.create') }}" method="post">
         <div class="form-group">
             <br>
             <label for="number">

@@ -19,6 +19,6 @@ services:
     depends_on:
       - mariadb
     ports:
-      - 3000:3000
+      - 3000:8000
     volumes:
       - ./:/container/

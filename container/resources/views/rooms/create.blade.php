@@ -5,18 +5,22 @@
 @section('content')
 <div class="container">
 
-    <h1>Criar Quarto</h1>
+    <h1>Quarto :: Adicionar</h1>
 
     <form action="" method="post">
         <div class="form-group">
             <br>
-            <label for="number"><h4>Quarto Número</h4></label>
+            <label for="number">
+                <h4>Quarto Número</h4>
+            </label>
             <input type="text" class="form-control" id="number" aria-describedby="Número do quarto que será">
             <small class="form-text text-muted">número do quarto que será cadastrado</small>
         </div>
 
         <div class="form-group">
-            <label for="description"><h4>Descrição do quarto</h4></label>
+            <label for="description">
+                <h4>Descrição do quarto</h4>
+            </label>
             <textarea class="form-control" id="description" rows="3"></textarea>
             <small class="form-text text-muted">Descreva o quarto que está sendo cadastrado</small>
         </div>

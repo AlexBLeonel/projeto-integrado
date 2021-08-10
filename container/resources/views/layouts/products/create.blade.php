@@ -1,34 +1,58 @@
 @extends('layouts.app')
 
-{{-- http://localhost/products/create --}}
+{{-- http://localhost/rooms/create --}}
 
 @section('content')
 <div class="container">
 
-    <h1>Criar Quarto</h1>
+    <h1>Adicionar :: Produto</h1>
+
     <form action="" method="post">
         <div class="form-group">
             <br>
-            <label for="product"><h4>Criação de Produto</h4></label>
-            <input type="text" class="form-control" id="product" aria-describedby="Nome: ">
+            <label for="product">
+                <h4>Nome do produto</h4>
+            </label>
+            <input type="text" class="form-control" id="product">
         </div>
 
         <div class="form-group">
-            <label for="description"><h4>Descrição</h4></label>
+            <label for="description">
+                <h4>Descrição do produto</h4>
+            </label>
             <textarea class="form-control" id="description" rows="3"></textarea>
         </div>
 
         <div class="form-group">
-            <br>
-            <label for="price"><h4>Preço</h4></label>
-            <input type="number" class="form-control" id="price">
+            <label for="description">
+                <h4>Descrição do produto</h4>
+            </label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
         </div>
 
+        <div class="form-group">
+            <label for="description">
+                <h4>Descrição do produto</h4>
+            </label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+        </div>
 
-        <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> salvar</button>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">R$</span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> salvar</button>
 
 
     </form>
+
+
+
+
+
+
 
 </div>
 @endsection

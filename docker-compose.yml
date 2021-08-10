@@ -7,7 +7,6 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=admin
       - MARIADB_DATABASE=db_projeto
-      - MARIADB_PASSWORD=admin
 
   myapp:
     tty: true

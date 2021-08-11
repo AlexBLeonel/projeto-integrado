@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Rooms;
+use App\Models\Client;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +17,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        Rooms::factory(10)->create();
+        Client::factory(10)->create();
+        Product::factory(10)->create();
     }
 }

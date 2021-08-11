@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Clients extends Model {
+class Client extends Model {
     use HasFactory;
     use SoftDeletes;
 
@@ -20,7 +20,6 @@ class Clients extends Model {
         return $this->hasMany(Payment::class);
     }
 
-    // agr sim
     public function orderClient() {
         return $this->belongsToMany(OrderClient::class);
     }

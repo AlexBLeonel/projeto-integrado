@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-  <h1>Clientes :: Listar</h1>
 
   <table class="table">
     <thead class="thead-dark">

@@ -24,7 +24,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -130,6 +130,12 @@
             @yield('content')
         </main>
     </div>
+
+    <footer>
+        <div class="card-footer text-muted bg-dark text-center">
+            Um projeto bem bacana
+        </div>
+    </footer>
 </body>
 
 </html>

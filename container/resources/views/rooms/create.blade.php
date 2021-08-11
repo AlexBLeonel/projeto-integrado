@@ -5,8 +5,6 @@
 @section('content')
 <div class="container">
 
-    <h1>Quarto :: Adicionar</h1>
-
     <form action="{{ route('rooms.create') }}" method="post">
         <div class="form-group">
             <br>
@@ -25,7 +23,7 @@
             <small class="form-text text-muted">Descreva o quarto que está sendo cadastrado</small>
         </div>
 
-        <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> salvar</button>
+        <button type="button" class="btn btn-warning"><i class="fas fa-save"></i> salvar</button>
 
 
     </form>

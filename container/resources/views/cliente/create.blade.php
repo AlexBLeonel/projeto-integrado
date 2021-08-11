@@ -52,7 +52,7 @@
             <input type="text" class="form-control" id="cpf">
         </div>
 
-        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> salvar</button>
+        <button type="submit" class="btn btn-warning"><i class="fas fa-save"></i> salvar</button>
 
 
     </form>

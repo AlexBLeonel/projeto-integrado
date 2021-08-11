@@ -8,8 +8,6 @@
     <h1>Fazer reserva</h1>
     <small class="form-text text-muted">Booking</small>
 
-
-
     <form action="" method="post">
 
         <div class="form-group">
@@ -27,7 +25,7 @@
             <input type="date" class="form-control" id="checkout">
         </div>
 
-        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> salvar</button>
+        <button type="submit" class="btn btn-warning"><i class="fas fa-save"></i> salvar</button>
 
 
     </form>

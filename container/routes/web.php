@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ProductController;
+
 
 Route::get('/', function () {
     return view('auth.login');

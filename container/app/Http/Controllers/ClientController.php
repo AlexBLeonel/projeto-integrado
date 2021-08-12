@@ -12,11 +12,11 @@ class ClientController extends Controller {
     
     public function index() {
         $clients = Client::all();
-        // return view('', compact('clients'));
+        return view('clients.list', compact('clients'));
     }
 
     public function create() {
-        // return view('');
+        return view('clients.create');
     }
     
     public function store(Request $request) {
@@ -32,17 +32,25 @@ class ClientController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('clients.list');
     }
 
     public function show($id) {
-        $client = Client::findOrFail($id);
-        // return view('', compact(''));
+        $client = Client::find($id);
+        if($client) {
+            return view('clients.show', compact('client'));
+        } else {
+            \Session::flash('flash_message', [
+                'msg'   => 'Cliente não encontrad!',
+                'class' => 'alert-danger'
+            ]);
+            return redirect()->route('clients.list');
+        }
     }
 
     public function edit($id) {
         $client = Client::findOrFail($id);
-        return view('', compact('client'));
+        return view('clients.edit', compact('client'));
     }
 
     public function update(Request $request, $id) {
@@ -59,7 +67,7 @@ class ClientController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('clients.list');
     }
 
     public function destroy($id) {
@@ -76,6 +84,6 @@ class ClientController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redict()->route();
+        return redirect()->route('clients.list');
     }
 }

@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
-{{-- http://localhost/rooms/create --}}
-
 @section('content')
 <div class="container">
-
     <form action="{{ route('rooms.create') }}" method="post">
         <div class="form-group">
             <br>
@@ -22,17 +19,7 @@
             <textarea class="form-control" id="description" rows="3"></textarea>
             <small class="form-text text-muted">Descreva o quarto que está sendo cadastrado</small>
         </div>
-
         <button type="button" class="btn btn-warning"><i class="fas fa-save"></i> salvar</button>
-
-
     </form>
-
-
-
-
-
-
-
 </div>
 @endsection

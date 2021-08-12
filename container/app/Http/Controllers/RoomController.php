@@ -1,12 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 
 class RoomController extends Controller {
     public function index() {
-        return view('rooms.list');
+        $rooms = Room::all();
+        return view('rooms.list', compact('rooms'));
     }
 
     public function create() {
@@ -26,24 +26,32 @@ class RoomController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('rooms.list');
     }
 
     public function show($id) {
-        $room = Room::findOrFail($id);
+        $room = Room::find($id);
         if($room) {
-            // return View('', compact('room'));
+            return View('rooms.show', compact('room'));
         } else {
-            // return View();
+            \Session::flash('flash_message', [
+                'msg'   => 'Quarto não encontrado!',
+                'class' => 'alert-danger'
+            ]);
+            return redirect->route('rooms.list');
         }
     }
 
     public function edit($id) {
         $room = Room::findOrFail($id);
         if($room) {
-            // return View('', compact('room'));
+            return View('rooms.edit', compact('room'));
         } else {
-            // return View();
+            \Session::flash('flash_message', [
+                'msg'   => 'Quarto não encontrado!',
+                'class' => 'alert-danger'
+            ]);
+            return redirect->route('rooms.list');
         }
     }
 
@@ -61,10 +69,23 @@ class RoomController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect->route('rooms.list');
     }
 
     public function destroy($id) {
-
+        $room = Room::findOrFail($id);
+        try {
+            $room->delete();
+            \Session::flash('flash_message', [
+                'msg'   => 'Quarto apagado com sucesso!',
+                'class' => 'alert-success'
+            ]);
+        } catch(PDOException $e) {
+            \Session::flash('flash_message', [
+                'msg'   => 'Ops, algo inesperado aconteceu...',
+                'class' => 'alert-danger'
+            ]);
+        }
+        return redirect()->route('rooms.list');
     }
 }

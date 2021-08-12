@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class BookingController extends Controller {
@@ -10,11 +8,12 @@ class BookingController extends Controller {
     }
     
     public function index() {
-        // return view('');
+        $bookings = Booking::all();
+        return view('bookings.list', compact('bookings'));
     }
 
     public function create() {
-        // return view('');
+        return view('bookings.create');
     }
 
     public function store(Request $request) {
@@ -30,24 +29,28 @@ class BookingController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('bookings.list');
     }
 
     public function show($id) {
-        $booking = Booking::findOrFail($id);
+        $booking = Booking::find($id);
         if($booking) {
-            // return View('', compact(''));
+            return View('bookings.show', compact('booking'));
         } else {
-            // return redirect()->route();
+            \Session::flash('flash_message', [
+                'msg'   => 'Reserva não encontrada!',
+                'class' => 'alert-danger'
+            ]);
+            return redirect()->route('bookings.list');
         }
     }
 
     public function edit($id) {
         $booking = Booking::findOrFail($id);
         if($booking) {
-            // return view('', compact('booking'));
+            return view('bookings.edit', compact('booking'));
         } else {
-            // return redirect()->route();
+            return redirect()->route('bookings.list');
         }
     }
 
@@ -65,7 +68,7 @@ class BookingController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('bookings.list');
     }
 
     public function destroy($id) {
@@ -81,6 +84,6 @@ class BookingController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('bookings.list');
     }
 }

@@ -11,11 +11,12 @@ class ProductController extends Controller {
     }
     
     public function index() {
-        // return view('');
+        $products = Product::all();
+        return view('products.list', compact('products'));
     }
 
     public function create() {
-        // return view('');
+        return view('products.create');
     }
 
     public function store(Request $request) {
@@ -31,24 +32,32 @@ class ProductController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('products.list');
     }
 
     public function show($id) {
-        $product = Product::findOrFail($id);
+        $product = Product::find($id);
         if($product) {
-            // return view();
+            return view('products.show', compact('product'));
         } else {
-            // return view();
+            \Session::flash('flash_message', [
+                'msg'   => 'Produto não encontrado!',
+                'class' => 'alert-danger'
+            ]);
+            return redirect()->route('products.list');
         }
     }
 
     public function edit($id) {
-        $product = Prodcut::findOrFail($id);
+        $product = Product::findOrFail($id);
         if($product) {
-            // return view('', compact('product')); 
+            return view('products.edit', compact('product'));
         } else {
-            // return view();
+            \Session::flash('flash_message', [
+                'msg'   => 'Produto não encontrad!',
+                'class' => 'alert-danger'
+            ]);
+            return redirect()->route('products.list');
         }
     }
 
@@ -66,7 +75,7 @@ class ProductController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('products.list');
     }
 
     public function destroy($id) {
@@ -82,6 +91,6 @@ class ProductController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('products.list');
     }
 }

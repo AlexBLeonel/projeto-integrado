@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Rooms;
+use App\Models\Room;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RoomsFactory extends Factory
 {
 
-    protected $model = Rooms::class;
+    protected $model = Room::class;
 
     public function definition()
     {

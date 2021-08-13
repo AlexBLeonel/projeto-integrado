@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('edit/{client_id}', [ClientController::class, 'edit'])->name('clients.edit');
         Route::put('update', [ClientController::class, 'update'])->name('clients.update');
         Route::delete('destroy', [ClientController::class, 'destroy'])->name('clients.destroy');
-        Route::get('show/{client_id}', [ClientController::class, 'show'])->name('client.show');
+        Route::get('show/{client_id}', [ClientController::class, 'show'])->name('clients.show');
     });
 
     Route::prefix('booking')->group(function () {

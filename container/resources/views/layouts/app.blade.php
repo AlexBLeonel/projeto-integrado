@@ -35,7 +35,7 @@
                         @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">
-                                <i class="fas fa-lock"></i>{{ __('Login') }}
+                                <i class="fas fa-lock p-1"></i>{{ __('Login') }}
                             </a>
                         </li>
                         @endif
@@ -43,7 +43,7 @@
                         @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">
-                                <i class="fas fa-user"></i>{{ __('Register') }}
+                                <i class="fas fa-user p-1"></i>{{ __('Register') }}
                             </a>
                         </li>
                         @endif
@@ -51,7 +51,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bed"></i> Quartos
+                                <i class="fas fa-bed p-1"></i>Quartos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('rooms.list') }}">Listar</a>
@@ -62,7 +62,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-store"></i> Produtos
+                                <i class="fas fa-store p-1"></i>Produtos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('products.list') }}">Listar</a>
@@ -73,7 +73,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-suitcase-rolling"></i> Clientes
+                                <i class="fas fa-suitcase-rolling p-1"></i>Clientes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('clients.list') }}">Listar</a>
@@ -84,7 +84,18 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user-edit"></i> Fazer Reserva
+                                <i class="fas fa-user-edit p-1"></i>Fazer Reserva
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('booking.list') }}">Listar</a>
+                                <a class="dropdown-item" href="{{ route('booking.create') }}">Criar</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-tags p-1"></i>Tags
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('booking.list') }}">Listar</a>
@@ -126,15 +137,14 @@
                 </div>
             </div>
         @endif
-            @yield('content')
+        @yield('content')
         </main>
     </div>
 
     <footer>
         <div class="card-footer text-muted bg-dark text-center">
-            Um projeto bem bacana
+            Projeto Integrado
         </div>
     </footer>
 </body>
-
 </html>

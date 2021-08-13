@@ -19,4 +19,16 @@ class OrderClient extends Model {
     public function orders() {
         return $this->hasMany(Order::class);
     }
+
+    public function getFormatedCreatedAttribute() {
+        return date("d/m/Y H:i:s", strtotime($this->attributes['created_at']));
+    }
+
+    public function getFormatedUpdatedAttribute() {
+        return date("d/m/Y H:i:s", strtotime($this->attributes['updated_at']));
+    }
+
+    public function getFormatedDeletedAttribute() {
+        return date("d/m/Y H:i:s", strtotime($this->attributes['deleted_at']));
+    }
 }

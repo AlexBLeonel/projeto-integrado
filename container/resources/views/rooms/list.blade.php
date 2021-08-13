@@ -28,7 +28,7 @@
                         <td scope="row">{{ $room->id }}</td>
                         <td>{{ $room->number }}</td>
                         <td>{{ $room->description }}</td>
-                        <td class="d-flex">
+                        <td class="d-flex justify-content-around">
                             <button type="button" class="btn btn-sm btn-outline-secondary m-1" data-toggle="modal" data-target="#edit-room-{{ $room->id }}"><i class="far fa-pen"></i></button>
             
                             <div class="modal fade" id="edit-room-{{ $room->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

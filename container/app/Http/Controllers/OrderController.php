@@ -1,8 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Http\Requests\StoreOrderRequest;
 
 class OrderController extends Controller {
     public function __construct() {
@@ -10,11 +9,12 @@ class OrderController extends Controller {
     }
     
     public function index() {
-         // return view();
+        $orders = Order::all();
+        return View('orders.list', compact('orders'));
     }
 
     public function create() {
-         // return view();
+        return View('orders.create');
     }
 
     public function store(Request $request) {
@@ -30,24 +30,28 @@ class OrderController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('orders.list');
     }
 
     public function show($id) {
-        $order = Order::findOrFail($id);
+        $order = Order::find($id);
         if($order) {
-            // return View('', compact('room'));
+            return view('orders.show', compact('order'));
         } else {
-            // return View();
+            \Session::flash('flash_message', [
+                'msg'   => 'Pedido não encontrad!',
+                'class' => 'alert-danger'
+            ]);
+            return redirect()->route('orders.list');
         }
     }
 
     public function edit($id) {
         $order = Order::findOrFail($id);
         if($order) {
-            // return View('', compact('room'));
+            return View('orders.edit', compact('room'));
         } else {
-            // return View();
+            return redirect()->route('orders.list');
         }
     }
 
@@ -65,7 +69,7 @@ class OrderController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('orders.list');
     }
 
     public function destroy($id) {
@@ -81,6 +85,6 @@ class OrderController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('orders.list');
     }
 }

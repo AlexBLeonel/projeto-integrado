@@ -1,9 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Requests\StoreProcuctRequest;
 
 class ProductController extends Controller {
     public function __construct() {
@@ -19,7 +17,7 @@ class ProductController extends Controller {
         return view('products.create');
     }
 
-    public function store(Request $request) {
+    public function store(StoreProcuctRequest $request) {
         try {
             Product::create($request->all());
             \Session::flash('flash_message', [

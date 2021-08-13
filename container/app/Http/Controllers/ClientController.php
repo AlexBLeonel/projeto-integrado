@@ -1,8 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreClientRequest;
 use App\Models\Client;
 
 class ClientController extends Controller {
@@ -19,7 +17,7 @@ class ClientController extends Controller {
         return view('clients.create');
     }
     
-    public function store(Request $request) {
+    public function store(StoreClientRequest $request) {
         try {
             Client::create($request->all());
             \Session::flash('flash_message', [

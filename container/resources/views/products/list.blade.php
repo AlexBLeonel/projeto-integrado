@@ -30,7 +30,7 @@
                         <td>{{ $product->product }}</td>
                         <td>{{ $product->description }}</td>
                         <td>R$ {{ $product->price }}</td>
-                        <td class="d-flex">
+                        <td class="d-flex justify-content-around">
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-outline-secondary m-1"><i class="fas fa-pen"></i></a>
                             <a href="{{ route('products.destroy', $product->id) }}" class="btn btn-sm btn-outline-danger m-1"><i class="fas fa-trash"></i></a>
                             <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-outline-info m-1"><i class="fas fa-info-circle"></i></a>

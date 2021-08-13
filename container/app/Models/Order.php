@@ -23,4 +23,16 @@ class Order extends Model {
     public function orderClient() {
         return $this->belongsToMany(OrderClient::class);
     }
+
+    public function getFormatedCreatedAttribute() {
+        return date("d/m/Y H:i:s", strtotime($this->attributes['created_at']));
+    }
+
+    public function getFormatedUpdatedAttribute() {
+        return date("d/m/Y H:i:s", strtotime($this->attributes['updated_at']));
+    }
+
+    public function getFormatedDeletedAttribute() {
+        return date("d/m/Y H:i:s", strtotime($this->attributes['deleted_at']));
+    }
 }

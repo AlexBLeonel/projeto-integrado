@@ -38,7 +38,7 @@ class RoomController extends Controller {
                 'msg'   => 'Quarto não encontrado!',
                 'class' => 'alert-danger'
             ]);
-            return redirect->route('rooms.list');
+            return redirect()->route('rooms.list');
         }
     }
 
@@ -51,7 +51,7 @@ class RoomController extends Controller {
                 'msg'   => 'Quarto não encontrado!',
                 'class' => 'alert-danger'
             ]);
-            return redirect->route('rooms.list');
+            return redirect()->route('rooms.list');
         }
     }
 
@@ -69,7 +69,7 @@ class RoomController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        return redirect->route('rooms.list');
+        return redirect()->route('rooms.list');
     }
 
     public function destroy($id) {

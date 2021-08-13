@@ -87,4 +87,6 @@ class BookingController extends Controller {
         }
         return redirect()->route('bookings.list');
     }
+
+    
 }

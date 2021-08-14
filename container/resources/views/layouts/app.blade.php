@@ -49,8 +49,7 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bed p-1"></i>Quartos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -60,9 +59,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-store p-1"></i>Produtos
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-store p-1"></i>Pedidos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('products.list') }}">Listar</a>
@@ -71,8 +69,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-suitcase-rolling p-1"></i>Clientes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -82,9 +79,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user-edit p-1"></i>Fazer Reserva
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-concierge-bell"></i> Reservas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('booking.list') }}">Listar</a>
@@ -93,8 +89,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-tags p-1"></i>Tags
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -104,8 +99,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fas fa-user-circle"></i>
                                 {{ Auth::user()->name }}
                             </a>
@@ -128,7 +122,7 @@
         </nav>
 
         <main class="py-4">
-        @if(Session::has('flash_message'))
+            @if(Session::has('flash_message'))
             <div class="ml-5 mr-5">
                 <div class="alert {{ Session::get('flash_message')['class'] }} alert-dismissible fade show" role="alert">
                     <div class="text-center">
@@ -136,8 +130,8 @@
                     </div>
                 </div>
             </div>
-        @endif
-        @yield('content')
+            @endif
+            @yield('content')
         </main>
     </div>
 
@@ -147,4 +141,5 @@
         </div>
     </footer>
 </body>
+
 </html>

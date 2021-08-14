@@ -39,9 +39,9 @@
             <div class="col-md-6">
                 <input name="client_id" type="text" id="client_id" class="custom-select-sm form-control @error('client_id') is-invalid @enderror" placeholder="Informe o Id do Cliente..." required autocomplete="client_id" autofocus>
                 @error('client_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
@@ -51,9 +51,9 @@
             <div class="col-md-6">
                 <input name="room_id" type="text" id="room_id" class="custom-select-sm form-control @error('room_id') is-invalid @enderror" placeholder="Informe o Id do Quarto..." required autocomplete="room_id" autofocus>
                 @error('room_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
@@ -63,9 +63,9 @@
             <div class="col-md-6">
                 <input name="checkin" type="date" id="checkin" class="custom-select-sm form-control @error('checkin') is-invalid @enderror" placeholder="Informe a Data de Entrada..." required autocomplete="checkin" autofocus>
                 @error('checkin')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
@@ -76,9 +76,9 @@
             <div class="col-md-6">
                 <input name="checkout" type="date" id="checkout" class="custom-select-sm form-control @error('checkout') is-invalid @enderror" placeholder="Informe a Data de Saída..." required autocomplete="checkout" autofocus>
                 @error('checkout')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>

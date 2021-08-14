@@ -39,7 +39,7 @@ class ClientController extends Controller {
             return view('clients.show', compact('client'));
         } else {
             \Session::flash('flash_message', [
-                'msg'   => 'Cliente não encontrad!',
+                'msg'   => 'Cliente não encontrado!',
                 'class' => 'alert-danger'
             ]);
             return redirect()->route('clients.list');

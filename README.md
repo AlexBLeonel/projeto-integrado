@@ -73,6 +73,24 @@
   <h3> Vá para o navegador e acesse </h3>
   <a href="http://localhost:8000">localhost:8000</a>
 
+</details>
+
+<h2>📁 Schema Banco de Dados</h2>
+
+<details>
+  <summary>mostrar BD</summary>
+   
+   ![banco](./assetsDoc/projeto_integrado_db.png)
+
+</details>
+
+
+<h2>📊 Desenvolvimento do projeto </h2>
+
+<details>
+  <summary>mostrar kanban</summary>
+   
+   ![banco](./assetsDoc/trello.png)
 
 </details>
 

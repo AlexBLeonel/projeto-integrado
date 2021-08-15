@@ -84,5 +84,5 @@
 | <img width="100px" alt="photo" src="https://avatars.githubusercontent.com/u/27782408?v=4"/> | [@diegolopes](https://github.com/diegolopes)      | CG3004023  |
 | <img width="100px" alt="photo" src="https://avatars.githubusercontent.com/u/19640894?v=4"/> | [@kaueMarques](https://github.com/kaueMarques)    | CG300399X  |
 | <img height="100px"  width="100px" alt="photo" src="./assetsDoc/matheus.jpeg"/>             | [@MatheusFelipe](https://github.com/SlackxRA1D)   | CG3004732  |
-| <img width="100px" alt="photo" src="./assetsDoc/ana.jfif"/>                                 | [@AnaLuisa](https://github.com/)                  | CG3003094  |
+| <img width="100px" alt="photo" src="./assetsDoc/ana.jfif"/>                                 | [@AnaLuiza](https://github.com/)                  | CG3003094  |
 | <img width="100px" alt="photo" src="./assetsDoc/samuel.jfif"/>                              | [@SamuelFrank](https://github.com/)               | CG3002861  |

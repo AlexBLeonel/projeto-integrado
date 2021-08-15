@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Schema;
 class AddNotesFieldToRoomTagsTable extends Migration
 {
     public function up() {
-        Schema::table('room_Tags', function (Blueprint $table) {
+        Schema::table('room_tags', function (Blueprint $table) {
             $table->string('notes')->default('Sem observações.');
         });
     }
 
     public function down() {
-        Schema::table('room_Tags', function (Blueprint $table) {
+        Schema::table('room_tags', function (Blueprint $table) {
             $table->dropColumn('notes');
         });
     }

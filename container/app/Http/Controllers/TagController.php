@@ -6,7 +6,7 @@ class TagController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index() {
         return view('tags.list');
     }
@@ -19,7 +19,7 @@ class TagController extends Controller {
         try {
             Tag::create($request->all());
             \Session::flash('flash_message', [
-                'msg'   => 'Quarto criado com sucesso!',
+                'msg'   => 'Criado com sucesso!',
                 'class' => 'alert-success'
             ]);
         } catch(PDOException $e) {

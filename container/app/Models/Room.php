@@ -8,14 +8,14 @@ class Room extends Model {
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ["description", "number"];
+    protected $fillable = ["description", "number", "status"];
 
     public function orders() {
-        return $this->belongsToMany(Order::class);
+        return $this->hasMany(Order::class);
     }
 
     public function bookings() {
-        return $this->belongsToMany(Booking::class);
+        return $this->hasMany(Booking::class);
     }
 
     public function tags() {
@@ -32,5 +32,17 @@ class Room extends Model {
 
     public function getFormatedDeletedAttribute() {
         return date("d/m/Y H:i:s", strtotime($this->attributes['deleted_at']));
+    }
+
+    public function getFormatedStatusAttribute() {
+        return $this->attributes['status'] == true ? "Ocupado" : "Disponível";
+    }
+
+    public function getOrdersOnAttribute() {
+        return $this->orders->where('status', '=', 1);
+    }
+
+    public function getOrdersOffAttribute() {
+        return $this->orders->where('status', '=', 0);
     }
 }

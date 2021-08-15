@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
+use App\Models\Client;
 
 class OrderController extends Controller {
     public function __construct() {
@@ -34,7 +35,8 @@ class OrderController extends Controller {
     }
 
     public function show($id) {
-        $order = Order::find($id);
+        $order  = Order::find($id);
+        $room = Client::findOrFail($order->room_id);
         if($order) {
             return view('orders.show', compact('order'));
         } else {

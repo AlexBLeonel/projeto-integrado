@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Client;
+use App\Models\Room;
 
 class BookingController extends Controller {
     public function __construct() {
@@ -14,14 +16,16 @@ class BookingController extends Controller {
     }
 
     public function create() {
-        return view('bookings.create');
+        $clients = Client::all();
+        $rooms   = Room::where('status', '=', 1)->get();
+        return view('bookings.create', compact('clients', 'rooms'));
     }
 
     public function store(Request $request) {
         try {
             Booking::create($request->all());
             \Session::flash('flash_message', [
-                'msg'   => 'Quarto criado com sucesso!',
+                'msg'   => 'Reserva cadastrada com sucesso!',
                 'class' => 'alert-success'
             ]);
         } catch(PDOException $e) {
@@ -87,6 +91,5 @@ class BookingController extends Controller {
         }
         return redirect()->route('bookings.list');
     }
-
     
 }

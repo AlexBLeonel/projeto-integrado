@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-sm btn-outline-primary"><i class="fas fa-save p-1"></i>Salvar</button>
+            <button type="submit" class="btn btn-sm btn-outline-primary m-1"><i class="fas fa-save p-1"></i>Salvar</button>
         </div>
     </form>
 </div>

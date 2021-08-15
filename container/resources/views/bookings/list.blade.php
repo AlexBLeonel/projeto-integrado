@@ -19,7 +19,7 @@
                     <th scope="col">Cliente</th>
                     <th scope="col">Quarto</th>
                     <th scope="col">Entrada</th>
-                    <th scope="col">Saída</th>
+                    <th scope="col">Saída Prevista</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -27,10 +27,10 @@
                 @foreach($bookings as $booking)
                     <tr class="align-middle">
                         <td scope="row">{{ $booking->id }}</td>
-                        <td>{{ $booking->cliente_id }}</td>
-                        <td>{{ $booking->room_id }}</td>
-                        <td>{{ $booking->checkin }}</td>
-                        <td>{{ $booking->checkout }}</td>
+                        <td>{{ $booking->client->formated_name }}</td>
+                        <td>N° {{ $booking->room->number }}</td>
+                        <td>{{ $booking->formated_checkin }}</td>
+                        <td>{{ $booking->formated_checkout }}</td>
                         <td class="d-flex justify-content-around">
                             <a href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-sm btn-outline-secondary m-1"><i class="fas fa-pen"></i></a>
                             <a href="{{ route('bookings.destroy', $booking->id) }}" class="btn btn-sm btn-outline-danger m-1"><i class="fas fa-trash"></i></a>

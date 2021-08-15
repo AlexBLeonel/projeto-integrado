@@ -31,4 +31,20 @@ class Booking extends Model {
     public function getFormatedDeletedAttribute() {
         return date("d/m/Y H:i:s", strtotime($this->attributes['deleted_at']));
     }
+
+    public function getFormatedCheckinAttribute() {
+        return date("d/m/Y", strtotime($this->attributes['checkin']));
+    }
+
+    public function getFormatedCheckoutAttribute() {
+        return date("d/m/Y", strtotime($this->attributes['checkout']));
+    }
+
+    public function getClientAttribute() {
+        return Client::findOrFail($this->attributes['client_id']);
+    }
+
+    public function getRoomAttribute() {
+        return Room::findOrFail($this->attributes['room_id']);
+    }
 }

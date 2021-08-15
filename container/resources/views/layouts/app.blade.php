@@ -60,11 +60,21 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-store p-1"></i>Pedidos
+                                <i class="fas fa-boxes"></i> Produtos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('products.list') }}">Listar</a>
                                 <a class="dropdown-item" href="{{ route('products.create') }}">Criar</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-store p-1"></i>Pedidos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('orders.list') }}">Listar</a>
+                                <a class="dropdown-item" href="{{ route('orders.create') }}">Criar</a>
                             </div>
                         </li>
 
@@ -83,8 +93,8 @@
                                 <i class="fas fa-concierge-bell"></i> Reservas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('booking.list') }}">Listar</a>
-                                <a class="dropdown-item" href="{{ route('booking.create') }}">Criar</a>
+                                <a class="dropdown-item" href="{{ route('bookings.list') }}">Listar</a>
+                                <a class="dropdown-item" href="{{ route('bookings.create') }}">Criar</a>
                             </div>
                         </li>
 
@@ -93,8 +103,8 @@
                                 <i class="fas fa-tags p-1"></i>Tags
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('booking.list') }}">Listar</a>
-                                <a class="dropdown-item" href="{{ route('booking.create') }}">Criar</a>
+                                <a class="dropdown-item" href="{{ route('tags.list') }}">Listar</a>
+                                <a class="dropdown-item" href="{{ route('tags.create') }}">Criar</a>
                             </div>
                         </li>
 

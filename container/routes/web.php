@@ -5,6 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TagController;
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -41,18 +44,38 @@ Route::middleware(['auth'])->group(function () {
         Route::get('show/{client_id}', [ClientController::class, 'show'])->name('clients.show');
     });
 
-    Route::prefix('booking')->group(function () {
-        Route::get('list', [BookingController::class, 'index'])->name('booking.list');
-        Route::get('create', [BookingController::class, 'create'])->name('booking.create');
-        Route::post('store', [BookingController::class, 'store'])->name('booking.store');
-        Route::get('edit/{booking_id}', [BookingController::class, 'edit'])->name('booking.edit');
-        Route::put('update', [BookingController::class, 'update'])->name('booking.update');
-        Route::delete('destroy', [BookingController::class, 'destroy'])->name('booking.destroy');
-        Route::get('show/{booking_id}', [BookingController::class, 'show'])->name('booking.show');
+    Route::prefix('bookings')->group(function () {
+        Route::get('list', [BookingController::class, 'index'])->name('bookings.list');
+        Route::get('create', [BookingController::class, 'create'])->name('bookings.create');
+        Route::post('store', [BookingController::class, 'store'])->name('bookings.store');
+        Route::get('edit/{booking_id}', [BookingController::class, 'edit'])->name('bookings.edit');
+        Route::put('update', [BookingController::class, 'update'])->name('bookings.update');
+        Route::delete('destroy', [BookingController::class, 'destroy'])->name('bookings.destroy');
+        Route::get('show/{booking_id}', [BookingController::class, 'show'])->name('bookings.show');
     });
+
+    Route::prefix('orders')->group(function () {
+        Route::get('list', [OrderController::class, 'index'])->name('orders.list');
+        Route::get('create', [OrderController::class, 'create'])->name('orders.create');
+        Route::post('store', [OrderController::class, 'store'])->name('orders.store');
+        Route::get('edit/{booking_id}', [OrderController::class, 'edit'])->name('orders.edit');
+        Route::put('update', [OrderController::class, 'update'])->name('orders.update');
+        Route::delete('destroy', [OrderController::class, 'destroy'])->name('orders.destroy');
+        Route::get('show/{booking_id}', [OrderController::class, 'show'])->name('orders.show');
+    });
+ 
+    Route::prefix('tags')->group(function () {
+        Route::get('list', [TagController::class, 'index'])->name('tags.list');
+        Route::get('create', [TagController::class, 'create'])->name('tags.create');
+        Route::post('store', [TagController::class, 'store'])->name('tags.store');
+        Route::get('edit/{booking_id}', [TagController::class, 'edit'])->name('tags.edit');
+        Route::put('update', [TagController::class, 'update'])->name('tags.update');
+        Route::delete('destroy', [TagController::class, 'destroy'])->name('tags.destroy');
+        Route::get('show/{booking_id}', [TagController::class, 'show'])->name('tags.show');
+    });
+
+    
 });
-
-
 
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');

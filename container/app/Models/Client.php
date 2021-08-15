@@ -37,4 +37,8 @@ class Client extends Model {
     public function getFormatedDeletedAttribute() {
         return date("d/m/Y H:i:s", strtotime($this->attributes['deleted_at']));
     }
+
+    public function getFormatedNameAttribute() {
+        return ucwords(mb_strtolower($this->attributes['name'], 'UTF-8'));
+    }
 }

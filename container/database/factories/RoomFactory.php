@@ -9,7 +9,9 @@ class RoomFactory extends Factory {
     public function definition() {
         return [
             'description' => $this->faker->paragraph(1),
-            'number'      => $this->faker->randomDigit(2),
+            'number'      => $this->faker->unique()->randomDigit(2),
+            'status'      => $this->faker->boolean(),
+            'notes'       => $this->faker->paragraph(2)
         ];
     }
 }

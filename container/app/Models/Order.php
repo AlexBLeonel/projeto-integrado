@@ -1,23 +1,20 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model {
     use HasFactory;
-    use SoftDeletes;
+    protected $table = 'orders';
 
     protected $fillable = ["product_id", "room_id", "status", "note"];
     
     public function products() {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     public function rooms() {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Room::class);
     }
 
     public function orderClient() {
@@ -34,5 +31,21 @@ class Order extends Model {
 
     public function getFormatedDeletedAttribute() {
         return date("d/m/Y H:i:s", strtotime($this->attributes['deleted_at']));
+    }
+
+    public function getFormatedNotesAttribute() {
+        if($this->attributes['notes'] == "")  {
+            return "Sem Observações.";
+        } else {
+            return $this->attributes['notes'];
+        }
+    }
+
+    public function getRoomAttribute() {
+        return Room::findOrFail($this->attributes['room_id']);
+    }
+
+    public function getFormatedStatusAttribute() {
+        return $this->attributes['status'] == true ? "Finalizado" : "Em andamento";
     }
 }

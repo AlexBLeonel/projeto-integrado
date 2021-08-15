@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class TagController extends Controller {
@@ -10,11 +8,11 @@ class TagController extends Controller {
     }
     
     public function index() {
-         // return view();
+        return view('tags.list');
     }
 
     public function create() {
-         // return view();
+        return view('tags.create');
     }
 
     public function store(Request $request) {
@@ -30,7 +28,7 @@ class TagController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('tags.list');
     }
 
     public function show($id) {
@@ -65,7 +63,7 @@ class TagController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('tags.list');
     }
 
     public function destroy($id) {
@@ -81,6 +79,6 @@ class TagController extends Controller {
                 'class' => 'alert-danger'
             ]);
         }
-        // return redirect()->route();
+        return redirect()->route('tags.list');
     }
 }

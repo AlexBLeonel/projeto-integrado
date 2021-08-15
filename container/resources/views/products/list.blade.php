@@ -18,12 +18,11 @@
                     <th scope="col">#</th>
                     <th scope="col">Produto</th>
                     <th scope="col">Descrição</th>
-                    <th scope="col">Preço</th>
+                    <th scope="col">Preço Unitário</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
-
                 @foreach($products as $product)
                     <tr class="align-middle">
                         <td scope="row">{{ $product->id }}</td>

@@ -16,8 +16,9 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">N° quarto</th>
+                        <th scope="col">Quarto</th>
                         <th scope="col">Descrição</th>
+                        <th scope="col">Status Atual</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -26,8 +27,9 @@
                     @foreach($rooms as $room)
                         <tr class="align-middle">
                             <td scope="row">{{ $room->id }}</td>
-                            <td>{{ $room->number }}</td>
+                            <td>N° {{ $room->number }}</td>
                             <td>{{ $room->description }}</td>
+                            <td>{{ $room->formated_status }}</td>
                             <td class="d-flex justify-content-around">
                                 <button type="button" class="btn btn-sm btn-outline-secondary m-1" data-toggle="modal" data-target="#edit-room-{{ $room->id }}"><i class="far fa-pen"></i></button>
                 
@@ -88,7 +90,7 @@
                                     </div>
                                 </div>
                                 <a href="" class="btn btn-sm btn-outline-danger m-1"><i class="fas fa-trash"></i></a>
-                                <a href="" class="btn btn-sm btn-outline-info m-1"><i class="fas fa-info-circle"></i></a>
+                                <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-sm btn-outline-info m-1"><i class="fas fa-info-circle"></i></a>
                             </td>
                         </tr>
                     @endforeach

@@ -5,7 +5,7 @@
 
 ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
 ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
 
 </div>
 
@@ -46,6 +46,8 @@
   * Ambiente Laravel preparado
   * Banco de dados MySQL/MariaDB porta <b> 3306 </b>
 
+  <h2>Instalação</h2>
+
   <h3> Faça o clone do repositório </h3>
 
   <code> git clone https://github.com/AlexBLeonel/projeto-integrado.git </code>
@@ -72,21 +74,15 @@
   <a href="http://localhost:8000">localhost:8000</a>
 
 
-
-
-
-   
-  
-  
 </details>
 
 ## 🛠️ Desenvolvedores
 
-| 📷                                                                                              | Desenvolvedor                                    | Prontuário |
-| ----------                                                                                      | -----------------------------------------------   | ---------- |
-| <img width="100px" alt="photo" src="https://avatars.githubusercontent.com/u/000000000000"/>     | [@AlexBLeonel](https://github.com/AlexBLeonel)    | CG3003094  |
-| <img width="100px" alt="photo" src="https://avatars.githubusercontent.com/u/27782408?v=4"/>     | [@diegolopes](https://github.com/diegolopes)      | CG3004023  |
-| <img width="100px" alt="photo" src="https://avatars.githubusercontent.com/u/19640894?v=4"/>     | [@kaueMarques](https://github.com/kaueMarques)    | CG300399X  |
-| <img width="100px" alt="photo" src="./assetsDoc/matheus.jpeg"/>                                 | [@MatheusFelipe](https://github.com/SlackxRA1D)   | CG3004732  |
-| <img width="100px" alt="photo" src="./assetsDoc/ana.jfif"/>                                     | [@AnaLuisa](https://github.com/)                  | CG3003094  |
-| <img width="100px" alt="photo" src="./assetsDoc/samuel.jfif"/>                                  | [@SamuelFrank](https://github.com/)               | CG3002861  |
+| 📷                                                                                          | Desenvolvedor                                    | Prontuário |
+| ----------                                                                                  | -----------------------------------------------   | ---------- |
+| <img width="100px" alt="photo" src="./assetsDoc/alex.jfif"/>                                | [@AlexBLeonel](https://github.com/AlexBLeonel)    | CG3003094  |
+| <img width="100px" alt="photo" src="https://avatars.githubusercontent.com/u/27782408?v=4"/> | [@diegolopes](https://github.com/diegolopes)      | CG3004023  |
+| <img width="100px" alt="photo" src="https://avatars.githubusercontent.com/u/19640894?v=4"/> | [@kaueMarques](https://github.com/kaueMarques)    | CG300399X  |
+| <img height="100px"  width="100px" alt="photo" src="./assetsDoc/matheus.jpeg"/>             | [@MatheusFelipe](https://github.com/SlackxRA1D)   | CG3004732  |
+| <img width="100px" alt="photo" src="./assetsDoc/ana.jfif"/>                                 | [@AnaLuisa](https://github.com/)                  | CG3003094  |
+| <img width="100px" alt="photo" src="./assetsDoc/samuel.jfif"/>                              | [@SamuelFrank](https://github.com/)               | CG3002861  |

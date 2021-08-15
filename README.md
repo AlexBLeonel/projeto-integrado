@@ -66,10 +66,16 @@
 
   <code> sudo /etc/init.d/mysql start </code>
 
+  <h3> Popule o banco com informações de teste </h3>
+  
+  <code> php artisan migrate --seed </code>
+
+    
   <h3> Inicie o App </h3>
 
   <code> php artisan serve </code>
 
+    
   <h3> Vá para o navegador e acesse </h3>
   <a href="http://localhost:8000">localhost:8000</a>
 

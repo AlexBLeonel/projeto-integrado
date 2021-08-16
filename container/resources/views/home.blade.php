@@ -41,24 +41,24 @@
     <div class="card text-center" style="width: 18rem;">
         <img src="https://images.unsplash.com/photo-1571907483086-3c0ea40cc16d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="card-img-top" alt="...">
         <div class="card-body">
-            <h4>TAGs</h4>   
+            <h4>TAGs</h4>
             <a type="button" href="{{ route('tags.create') }}" class="btn btn-sm btn-outline-primary m-1"><i class="fas fa-plus p-1"></i>  Adicionar</a>
             <a type="button" href="{{ route('tags.list') }}" class="btn btn-sm btn-outline-primary m-1"><i class="fas fa-clipboard-list"></i> Listar</a>
-       
+
     </div>
     </div>
 
     <div class="card text-center" style="width: 18rem;">
         <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80" class="card-img-top" alt="...">
         <div class="card-body">
-            <h4>Products</h4>   
+            <h4>Produtos</h4>
             <a type="button" href="{{ route('products.create') }}" class="btn btn-sm btn-outline-primary m-1"><i class="fas fa-plus p-1"></i>  Adicionar</a>
             <a type="button" href="{{ route('products.list') }}" class="btn btn-sm btn-outline-primary m-1"><i class="fas fa-clipboard-list"></i> Listar</a>
     </div>
     </div>
 
 
-    
+
 
 </div>
 @endsection

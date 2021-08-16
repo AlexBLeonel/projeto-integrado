@@ -41,7 +41,7 @@
         <div class="form-group row">
             <label for="room_id" class="col-md-4 col-form-label text-md-right">{{ __('Observações') }}</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="note"/>
+                <input type="text" class="form-control" name="note" required/>
 
             </div>
         </div>

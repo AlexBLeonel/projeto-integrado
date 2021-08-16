@@ -16,8 +16,8 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Quarto</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Descrição</th>
                     <th scope="col">Observações</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -26,13 +26,12 @@
                 @foreach($tags as $tag)
                     <tr class="align-middle">
                         <td scope="row">{{ $tag->id }}</td>
-                        <td>N° {{ $tag->room->number }}</td>
-                        <td>{{ $tag->formated_status }}</td>
-                        <td>{{ $tag->formated_notes }}</td>
+                        <td>{{ $tag->type }}</td>
+                        <td>{{ $tag->description }}</td>
+                        <td>{{ $tag->notes }}</td>
                         <td class="d-flex justify-content-around">
                             <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-sm btn-outline-secondary m-1"><i class="fas fa-pen"></i></a>
-                            <a href="{{ route('tags.destroy', $tag->id) }}" class="btn btn-sm btn-outline-danger m-1"><i class="fas fa-trash"></i></a>
-                            <a href="{{ route('tags.show', $tag->id) }}" class="btn btn-sm btn-outline-info m-1"><i class="fas fa-info-circle"></i></a>
+                            <a href="#" id="{{ 'del_' . $tag->id}}"  class="btn btn-sm btn-outline-danger m-1 delete"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -40,4 +39,34 @@
         </table>
     </div>
 </div>
+@endsection
+
+@section('extra-scripts')
+<script>
+window.onload = function() {
+    $('.delete').click(function(e){
+        let deletar = confirm('Deseja excluir este item?');
+
+        if(deletar){
+            let id = $(this).attr('id').split('_')[1];
+
+            $.ajax({
+                method: 'delete',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/tags/destroy/' + id,
+                success: function(res) {
+                    alert('deletado com sucesso');
+                    window.location.reload();
+                },
+                error: function(e) {
+                    alert('erro ao excluir');
+                }
+
+            })
+        }
+    })
+}
+</script>
 @endsection

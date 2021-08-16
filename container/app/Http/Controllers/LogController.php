@@ -8,7 +8,7 @@ class LogController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index() {
          // return view();
     }
@@ -68,19 +68,16 @@ class LogController extends Controller {
         // return redirect()->route();
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         try {
             Log::findOrFail($id)->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Quarto apagado com sucesso!',
-                'class' => 'alert-success'
-            ]);
-        } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            return (['deleted' => true]);
+        } catch (PDOException $e) {
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
+    }
+}
         // return redirect()->route();
     }
 }

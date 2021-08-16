@@ -9,9 +9,9 @@ class BookingController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index() {
-        $bookings = Booking::all();
+        $bookings = Booking::with(['clients','rooms'])->get();
         return view('bookings.list', compact('bookings'));
     }
 
@@ -52,8 +52,10 @@ class BookingController extends Controller {
 
     public function edit($id) {
         $booking = Booking::findOrFail($id);
+        $clients = Client::all();
+        $rooms   = Room::all();
         if($booking) {
-            return view('bookings.edit', compact('booking'));
+            return view('bookings.edit', compact('booking', 'clients', 'rooms'));
         } else {
             return redirect()->route('bookings.list');
         }
@@ -76,20 +78,14 @@ class BookingController extends Controller {
         return redirect()->route('bookings.list');
     }
 
-    public function destroy($id) {
+
+    public function destroy($id)
+    {
         try {
             Booking::findOrFail($id)->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Quarto apagado com sucesso!',
-                'class' => 'alert-success'
-            ]);
-        } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            return (['deleted' => true]);
+        } catch (PDOException $e) {
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
-        return redirect()->route('bookings.list');
     }
-    
 }

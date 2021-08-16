@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('extra-scripts')
     @yield('extra-styles')
 </head>
 
@@ -43,7 +44,7 @@
                         @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">
-                                <i class="fas fa-user p-1"></i>{{ __('Register') }}
+                                {{-- <i class="fas fa-user p-1"></i>{{ __('Register') }} --}}
                             </a>
                         </li>
                         @endif

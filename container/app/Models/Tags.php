@@ -9,7 +9,7 @@ class Tags extends Model {
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ["type","description"];
+    protected $fillable = ["type","description","notes"];
 
     public function getFormatedCreatedAttribute() {
         return date("d/m/Y H:i:s", strtotime($this->attributes['created_at']));

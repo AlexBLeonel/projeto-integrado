@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <h2 class="text-center">Editar Produto</h2>
-    <form action="" method="post">
+    <form action="{{ route('products.update', $product->id) }}" method="post">
 
         <div class="form-group row">
             <label for="product" class="col-md-4 col-form-label text-md-right">{{ __('Produto') }}</label>
@@ -40,6 +40,7 @@
                 @enderror
             </div>
         </div>
+        @csrf
         <div class="text-center">
             <button type="submit" class="btn btn-sm btn-outline-primary m-1"><i class="fas fa-save p-1"></i>Salvar</button>
         </div>

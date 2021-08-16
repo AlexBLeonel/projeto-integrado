@@ -7,7 +7,7 @@ class ClientController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index() {
         $clients = Client::all();
         return view('clients.list', compact('clients'));
@@ -16,7 +16,7 @@ class ClientController extends Controller {
     public function create() {
         return view('clients.create');
     }
-    
+
     public function store(StoreClientRequest $request) {
         try {
             Client::create($request->all());
@@ -68,20 +68,14 @@ class ClientController extends Controller {
         return redirect()->route('clients.list');
     }
 
-    public function destroy($id) {
-        $client = Client::findOrFail($id);
+
+    public function destroy($id)
+    {
         try {
-            $client->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Cliente apagado com sucesso!',
-                'class' => 'alert-success'
-            ]);
-        } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            Client::findOrFail($id)->delete();
+            return (['deleted' => true]);
+        } catch (PDOException $e) {
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
-        return redirect()->route('clients.list');
     }
 }

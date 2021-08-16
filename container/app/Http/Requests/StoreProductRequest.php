@@ -11,8 +11,8 @@ class StoreProductRequest extends FormRequest {
     public function rules() {
         return [
             "product"    => "required|max:50",
-            "decription" => "required|max:250",
-            "price"      => "required"
+            "description" => "required|max:250",
+            "price"      => "required|regex:/^\d+(\.\d{1,2})?$/"
         ];
     }
 
@@ -22,7 +22,8 @@ class StoreProductRequest extends FormRequest {
             "product.max"          => "O produto deve possuir no máximo 50 caracteres.",
             "description.required" => "Por favor informe a descrição.",
             "description.max"      => "A descrição deve possuir no máximo 255 caracteres.",
-            "price.required"       => "Por favor informe o preço."
+            "price.required"       => "Por favor informe o preço.",
+            "price.regex"          => "O campo deve conter só números."
         ];
     }
 }

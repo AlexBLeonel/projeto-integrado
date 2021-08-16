@@ -27,14 +27,15 @@
                 @foreach($bookings as $booking)
                     <tr class="align-middle">
                         <td scope="row">{{ $booking->id }}</td>
+
                         <td>{{ $booking->client->formated_name }}</td>
-                        <td>N° {{ $booking->room->number }}</td>
+                        <td>N° {{ $booking->room->formated_number }}</td>
+
                         <td>{{ $booking->formated_checkin }}</td>
                         <td>{{ $booking->formated_checkout }}</td>
                         <td class="d-flex justify-content-around">
                             <a href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-sm btn-outline-secondary m-1"><i class="fas fa-pen"></i></a>
-                            <a href="{{ route('bookings.destroy', $booking->id) }}" class="btn btn-sm btn-outline-danger m-1"><i class="fas fa-trash"></i></a>
-                            <a href="{{ route('bookings.show', $booking->id) }}" class="btn btn-sm btn-outline-info m-1"><i class="fas fa-info-circle"></i></a>
+                            <a href="#" id="{{ 'del_' . $booking->id}}"  class="btn btn-sm btn-outline-danger m-1 delete"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach

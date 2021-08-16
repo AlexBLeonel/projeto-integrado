@@ -72,20 +72,16 @@ class RoomController extends Controller {
         return redirect()->route('rooms.list');
     }
 
+
+
     public function destroy($id) {
-        $room = Room::findOrFail($id);
         try {
-            $room->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Quarto apagado com sucesso!',
-                'class' => 'alert-success'
-            ]);
+            Room::findOrFail($id)->delete();
+            return(['deleted' => true]);
+
         } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
-        return redirect()->route('rooms.list');
     }
 }
+

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Tags;
 
 class TagController extends Controller {
     public function __construct() {
@@ -8,7 +9,8 @@ class TagController extends Controller {
     }
 
     public function index() {
-        return view('tags.list');
+        $tags = Tags::all();
+        return view('tags.list', compact('tags'));
     }
 
     public function create() {
@@ -17,7 +19,8 @@ class TagController extends Controller {
 
     public function store(Request $request) {
         try {
-            Tag::create($request->all());
+            Tags::create($request->all());
+
             \Session::flash('flash_message', [
                 'msg'   => 'Criado com sucesso!',
                 'class' => 'alert-success'
@@ -32,26 +35,26 @@ class TagController extends Controller {
     }
 
     public function show($id) {
-        $tag = Tag::findOrFail($id);
+        $tag = Tags::findOrFail($id);
         if($tag) {
-            // return View('', compact('room'));
+            return view('tags.show', compact('tag'));
         } else {
-            // return View();
+            return Http::response('Tag não encontrada', 404);
         }
     }
 
     public function edit($id) {
-        $tag = Tag::findOrFail($id);
+        $tag = Tags::findOrFail($id);
         if($tag) {
-            // return View('', compact('room'));
+            return view('tags.edit', compact('tag'));
         } else {
-            // return View();
+            return Http::response('Tag não encontrada', 404);
         }
     }
 
     public function update(Request $request, $id) {
         try {
-            $tag = Tag::findOrFail($id);
+            $tag = Tags::findOrFail($id);
             $tag->update($request->all());
             \Session::flash('flash_message', [
                 'msg'   => 'Quarto atualizado com sucesso!',
@@ -68,17 +71,11 @@ class TagController extends Controller {
 
     public function destroy($id) {
         try {
-            Tag::findOrFail($id)->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Quarto apagado com sucesso!',
-                'class' => 'alert-success'
-            ]);
+            Tags::findOrFail($id)->delete();
+            return(['deleted' => true]);
+
         } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
-        return redirect()->route('tags.list');
     }
 }

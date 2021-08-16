@@ -2,27 +2,32 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
+use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\Product;
+use App\Models\Room;
 
 class OrderController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index() {
-        $orders = Order::all();
-        return View('orders.list', compact('orders'));
+        $orders = Order::with('products')->get();
+        return view('orders.list', compact('orders'));
     }
 
     public function create() {
-        return View('orders.create');
+        $rooms = Room::all();
+        $products = Product::all();
+        return view('orders.create', compact(['rooms','products']));
     }
 
     public function store(Request $request) {
         try {
             Order::create($request->all());
             \Session::flash('flash_message', [
-                'msg'   => 'Quarto criado com sucesso!',
+                'msg'   => 'Produto criado com sucesso!',
                 'class' => 'alert-success'
             ]);
         } catch(PDOException $e) {
@@ -74,19 +79,15 @@ class OrderController extends Controller {
         return redirect()->route('orders.list');
     }
 
+
+
     public function destroy($id) {
         try {
             Order::findOrFail($id)->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Quarto apagado com sucesso!',
-                'class' => 'alert-success'
-            ]);
+            return(['deleted' => true]);
+
         } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
-        return redirect()->route('orders.list');
     }
 }

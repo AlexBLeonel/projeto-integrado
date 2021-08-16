@@ -2,11 +2,9 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Room extends Model {
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable = ["description", "number", "status"];
 
@@ -45,4 +43,14 @@ class Room extends Model {
     public function getOrdersOffAttribute() {
         return $this->orders->where('status', '=', 0);
     }
+
+    public function getFormatedNumberAttribute() {
+        return $this->attributes['number'];
+    }
+
+    public function getClientAttribute()
+    {
+        return Client::findOrFail($this->attributes['name']);
+    }
+
 }

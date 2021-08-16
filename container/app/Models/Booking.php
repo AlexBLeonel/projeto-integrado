@@ -4,20 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Booking extends Model {
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable = ["client_id", "room_id", "checkin", "checkout"];
 
     public function clients() {
-        return $this->belongsToMany(Client::class);
+        return $this->belongsToMany(Client::class, 'bookings','id');
     }
 
     public function rooms() {
-        return $this->belongsToMany(Room::class);
+        return $this->belongsToMany(Room::class,'bookings','id');
     }
 
     public function getFormatedCreatedAttribute() {
@@ -40,11 +38,11 @@ class Booking extends Model {
         return date("d/m/Y", strtotime($this->attributes['checkout']));
     }
 
-    public function getClientAttribute() {
-        return Client::findOrFail($this->attributes['client_id']);
-    }
+     public function getClientAttribute() {
+         return Client::findOrFail($this->attributes['client_id']);
+     }
 
-    public function getRoomAttribute() {
-        return Room::findOrFail($this->attributes['room_id']);
-    }
+      public function getRoomAttribute() {
+          return Room::findOrFail($this->attributes['room_id']);
+      }
 }

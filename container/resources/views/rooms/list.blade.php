@@ -32,10 +32,11 @@
                             <td>{{ $room->formated_status }}</td>
                             <td class="d-flex justify-content-around">
                                 <button type="button" class="btn btn-sm btn-outline-secondary m-1" data-toggle="modal" data-target="#edit-room-{{ $room->id }}"><i class="far fa-pen"></i></button>
-                
+
                                 <div class="modal fade" id="edit-room-{{ $room->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
+                                            <form method="post" action=" {{ route('rooms.update', $room->id) }} ">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -44,6 +45,7 @@
                                             </div>
 
                                             <div class="modal-body">
+
                                                 <div class="form-group row align-middle">
                                                     <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('Id') }}</label>
                                                     <div class="col-md-6">
@@ -68,6 +70,17 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="form-group row align-middle">
+                                                    <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('Status do quarto') }}</label>
+                                                    <div class="col-md-6">
+                                                        <select class="form-control" class="status" name="status" id="status">
+                                                            <option value="{{ $room->status }}" selected>{{ $room->formated_status }}</option>
+                                                            <option value="1">Ocupado</option>
+                                                            <option value="0">Disponível</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                 <div class="form-group row">
                                                     <label for="description"
                                                         class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
@@ -84,19 +97,51 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-sm btn-outline-success"><i class="fas fa-save p-1"></i>Salvar</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-success"><i class="fas fa-save p-1"></i>Salvar</button>
                                             </div>
+                                            @csrf
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="" class="btn btn-sm btn-outline-danger m-1"><i class="fas fa-trash"></i></a>
-                                <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-sm btn-outline-info m-1"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" id="{{ 'del_' . $room->id}}"  class="btn btn-sm btn-outline-danger m-1 delete"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach
-                    
+
                 </tbody>
             </table>
         </div>
     </div>
+@endsection
+
+
+@section('extra-scripts')
+<script>
+window.onload = function() {
+    $('.delete').click(function(e){
+        let deletar = confirm('Deseja excluir este item?');
+
+        if(deletar){
+            let id = $(this).attr('id').split('_')[1];
+
+            $.ajax({
+                method: 'delete',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/rooms/destroy/' + id,
+                success: function(res) {
+                    alert('deletado com sucesso');
+                    window.location.reload();
+                },
+                error: function(e) {
+                    alert('erro ao excluir');
+                }
+
+            })
+        }
+    })
+}
+</script>
 @endsection

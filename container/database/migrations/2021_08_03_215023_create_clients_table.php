@@ -12,7 +12,7 @@ class CreateClientsTable extends Migration {
             $table->string('phone', 20);
             $table->string('email', 100);
             $table->date('birth');
-            $table->string('cpf', 9);
+            $table->string('cpf', 11);
             $table->timestamps();
             $table->softDeletes();
         });

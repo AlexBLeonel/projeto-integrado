@@ -35,8 +35,7 @@
                         <td>{{ $client->cpf }}</td>
                         <td class="d-flex justify-content-around">
                             <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-sm btn-outline-secondary m-1"><i class="fas fa-pen"></i></a>
-                            <a href="{{ route('clients.destroy', $client->id) }}" class="btn btn-sm btn-outline-danger m-1"><i class="fas fa-trash"></i></a>
-                            <a href="{{ route('clients.show', $client->id) }}" class="btn btn-sm btn-outline-info m-1"><i class="fas fa-info-circle"></i></a>
+                            <a href="#" id="{{ 'del_' . $client->id}}"  class="btn btn-sm btn-outline-danger m-1 delete"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -44,4 +43,35 @@
         </table>
     </div>
 </div>
+@endsection
+
+
+@section('extra-scripts')
+<script>
+window.onload = function() {
+    $('.delete').click(function(e){
+        let deletar = confirm('Deseja excluir este item?');
+
+        if(deletar){
+            let id = $(this).attr('id').split('_')[1];
+
+            $.ajax({
+                method: 'delete',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/clients/destroy/' + id,
+                success: function(res) {
+                    alert('deletado com sucesso');
+                    window.location.reload();
+                },
+                error: function(e) {
+                    alert('erro ao excluir');
+                }
+
+            })
+        }
+    })
+}
+</script>
 @endsection

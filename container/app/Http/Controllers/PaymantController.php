@@ -9,7 +9,7 @@ class PaymantController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index() {
         $paymants = Paymant::all();
         // return view('', compact('paymants'));
@@ -70,20 +70,13 @@ class PaymantController extends Controller {
         // return redirect()->route();
     }
 
-    public function destroy($id) {
-        $paymant = Paymant::findOrFail($id);
+    public function destroy($id)
+    {
         try {
-            $paymant->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Pagamento excluido com sucesso!',
-                'class' => 'alert-success'
-            ]);
-        } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            Payment::findOrFail($id)->delete();
+            return (['deleted' => true]);
+        } catch (PDOException $e) {
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
-        // return redirect()->route();
     }
 }

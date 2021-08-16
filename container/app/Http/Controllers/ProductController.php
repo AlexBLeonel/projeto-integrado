@@ -1,13 +1,14 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Http\Requests\StoreProcuctRequest;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     public function index() {
         $products = Product::all();
         return view('products.list', compact('products'));
@@ -17,7 +18,7 @@ class ProductController extends Controller {
         return view('products.create');
     }
 
-    public function store(StoreProcuctRequest $request) {
+    public function store(StoreProductRequest $request) {
         try {
             Product::create($request->all());
             \Session::flash('flash_message', [
@@ -64,7 +65,7 @@ class ProductController extends Controller {
         try {
             $product->update($request->all());
             \Session::flash('flash_message', [
-                'msg'   => 'Produto criado com sucesso!',
+                'msg'   => 'Produto editado com sucesso!',
                 'class' => 'alert-success'
             ]);
         } catch(PDOException $e) {
@@ -76,19 +77,13 @@ class ProductController extends Controller {
         return redirect()->route('products.list');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         try {
             Product::findOrFail($id)->delete();
-            \Session::flash('flash_message', [
-                'msg'   => 'Produto apagado com sucesso!',
-                'class' => 'alert-success'
-            ]);
-        } catch(PDOException $e) {
-            \Session::flash('flash_message', [
-                'msg'   => 'Ops, algo inesperado aconteceu...',
-                'class' => 'alert-danger'
-            ]);
+            return (['deleted' => true]);
+        } catch (PDOException $e) {
+            return Http::response('Erro - Não foi possível excluir', 500);
         }
-        return redirect()->route('products.list');
     }
 }

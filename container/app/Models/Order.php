@@ -2,13 +2,13 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-    
+
 class Order extends Model {
     use HasFactory;
     protected $table = 'orders';
 
     protected $fillable = ["product_id", "room_id", "status", "note"];
-    
+
     public function products() {
         return $this->belongsToMany(Product::class);
     }
@@ -43,6 +43,10 @@ class Order extends Model {
 
     public function getRoomAttribute() {
         return Room::findOrFail($this->attributes['room_id']);
+    }
+
+    public function getProductAttribute() {
+        return Product::findOrFail($this->attributes['product_id']);
     }
 
     public function getFormatedStatusAttribute() {

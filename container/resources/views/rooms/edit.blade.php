@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container-fluid">
-    <h2 class="text-center">Editar Pedido</h2>
+    <h2 class="text-center">Editar Quarto</h2>
     <form action="" method="post">
 
         <div class="form-group row">
-            <label for="product" class="col-md-4 col-form-label text-md-right">{{ __('Produto') }}</label>
+            <label for="product" class="col-md-4 col-form-label text-md-right">{{ __('Room') }}</label>
             <div class="col-md-6">
                 <input name="product" type="text" id="product" value="{{ $product->product }}" class="custom-select-sm form-control @error('product') is-invalid @enderror" placeholder="Informe o Produto..." required autocomplete="product" autofocus>
-                @error('product')
+                @error('room')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         Room::factory(10)->create();
         Client::factory(10)->create();
         Product::factory(10)->create();
+
+        $this->call(TagSeeder::class);
     }
 }

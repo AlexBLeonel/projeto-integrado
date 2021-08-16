@@ -12,8 +12,8 @@ class CreateBookingsTable extends Migration {
             $table->foreign('client_id')->references('id')->on('clients');
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms');
-            $table->dateTime('checkin');
-            $table->dateTime('checkout');
+            $table->date('checkin');
+            $table->date('checkout');
             $table->timestamps();
             $table->softDeletes();
         });

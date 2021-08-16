@@ -9,11 +9,13 @@ class CreateOrdersTable extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedBigInteger('room_id');
-            $table->foreign('room_id')->references('id')->on('rooms');
             $table->boolean('status');
             $table->string('note', 250);
+
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('product_id')->references('id')->on('products');
+
             $table->timestamps();
             $table->softDeletes();
         });

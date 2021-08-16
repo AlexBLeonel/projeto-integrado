@@ -23,7 +23,7 @@
 
 <div align="center">
             
-[![Youtube Video](./assetsDoc/yt-player.png)](https://youtu.be/tB0O0Vm4xfo "Clique para assistir")
+[![Assista o vídeo](./assetsDoc/yt-player.png)](https://youtu.be/nfRHwH5vm58 "Clique para assistir")
 
 Para assistir clique acima
                                                                                                                       

@@ -16,17 +16,17 @@
 
 </div>
 
-</div>
+
+
 
 ## 🖼️ Preview
 
 <div align="center">
-
-
-<img width="500px" alt="dashboard" src="./assetsDoc/dashboard.png"/>
-
-<img width="500px" alt="login" src="./assetsDoc/login.png"/>
-
+            
+[![VIDEO-YT](https://yt-embed.herokuapp.com/embed?v=tB0O0Vm4xfo)](https://youtu.be/tB0O0Vm4xfo "Video YT")
+                                                                                                                      
+</div>
+    
 </div>
 
 

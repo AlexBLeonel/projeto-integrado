@@ -7,7 +7,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TagController;
-use Auth;
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -77,6 +77,3 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-Auth::routes();
-Auth::routes(['register' => false]);
-Route::get('/home', [HomeController::class, 'index'])->name('home');

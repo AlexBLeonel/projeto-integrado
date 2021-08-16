@@ -5,12 +5,28 @@
         td, th, tr {
             vertical-align: middle !important;
             text-align: center !important;
+        } #filtros {
+            background-color: #e6e6e69e !important;
+            border: 1px solid #c5c5c7 !important;
+            border-radius: 12px !important;
         }
     </style>
 @endsection
 
 @section('content')
     <div class="container-fluid">
+        <div class="text-center mb-3">
+             <h2>Listagem de Quartos</h2>
+             <hr>
+            <div class="p-2 container" id="filtros">
+                <h3>Filtros</h3>
+                <div class="d-flex m-3 justify-content-around">
+                    <a class="btn btn-sm btn-outline-success" href="{{ route('rooms.available_rooms') }}">Quartos Disponíveis</a>
+                    <a class="btn btn-sm btn-outline-info" href="{{ route('rooms.list') }}">Todos Quartos</a>
+                    <a class="btn btn-sm btn-outline-danger" href="{{ route('rooms.unavailable_rooms') }}">Quartos Indisponíveis</a>
+                </div>
+            </div>
+        </div>
         <div class="table-responsive">
             <table class="table table-striped table-hover table-sm">
                 <thead class="thead-dark">

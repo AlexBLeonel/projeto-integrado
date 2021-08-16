@@ -12,6 +12,9 @@
 @section('content')
 <div class="container-fluid">
     <div class="table-responsive">
+        <div class="text-center mb-3">
+            <h2>Listagem de Clients</h2>
+        </div>
         <table class="table table-striped table-hover table-sm">
             <thead class="thead-dark">
                 <tr>

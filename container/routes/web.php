@@ -22,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('update/{id}', [RoomController::class, 'update'])->name('rooms.update');
         Route::delete('destroy/{id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
         Route::get('show/{room_id}', [RoomController::class, 'show'])->name('rooms.show');
+        Route::get('available-rooms', [RoomController::class, 'get_available_rooms'])->name('rooms.available_rooms');
+        Route::get('unavailable-rooms', [RoomController::class, 'get_unavailable_rooms'])->name('rooms.unavailable_rooms');
     });
 
     Route::prefix('products')->group(function () {

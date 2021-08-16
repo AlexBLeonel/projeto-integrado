@@ -83,5 +83,22 @@ class RoomController extends Controller {
             return Http::response('Erro - Não foi possível excluir', 500);
         }
     }
-}
 
+    public function get_available_rooms() {
+        try {
+            $rooms = Room::all()->where('status', '=', 0);
+            return view('rooms.list', compact('rooms'));
+        } catch(PDOException $e) {
+            return redirect()->route('rooms.list');
+        }
+    }
+
+    public function get_unavailable_rooms() {
+        try {
+            $rooms = Room::all()->where('status', '=', 1);
+            return view('rooms.list', compact('rooms'));
+        } catch(PDOException $e) {
+            return redirect()->route('rooms.list');
+        }
+    }
+}

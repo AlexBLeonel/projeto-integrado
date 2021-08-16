@@ -36,21 +36,11 @@ class Room extends Model {
         return $this->attributes['status'] == true ? "Ocupado" : "Disponível";
     }
 
-    public function getOrdersOnAttribute() {
-        return $this->orders->where('status', '=', 1);
-    }
-
-    public function getOrdersOffAttribute() {
-        return $this->orders->where('status', '=', 0);
-    }
-
     public function getFormatedNumberAttribute() {
         return $this->attributes['number'];
     }
 
-    public function getClientAttribute()
-    {
+    public function getClientAttribute() {
         return Client::findOrFail($this->attributes['name']);
     }
-
 }

@@ -19,7 +19,7 @@
 
 
 
-## 🖼️ Preview
+## 🖼️ Vídeo
 
 <div align="center">
             

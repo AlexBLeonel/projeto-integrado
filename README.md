@@ -23,7 +23,7 @@
 
 <div align="center">
             
-[![VIDEO-YT](https://yt-embed.herokuapp.com/embed?v=tB0O0Vm4xfo)](https://youtu.be/tB0O0Vm4xfo "Video YT")
+[![VIDEO-YT](https://yt-embed.herokuapp.com/embed?v=tB0O0Vm4xfo)](https://img.youtube.com/vi/tB0O0Vm4xfo/0.jpg "Video YT")
                                                                                                                       
 </div>
     
